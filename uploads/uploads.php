@@ -16,39 +16,9 @@ if($info['extension'] == 'csv'){
 	       echo "Sorry, your file is too large.";
 	           $uploadOk = 0;
 		   }
-                                                  ?>
-<?
-$allowedExts = array("csv");
-$allowedTypes = array("file/csv");
-
-$temp = explode(".", $_FILES["file"]["name"]);
-$extension = end($temp);
-if ((in_array($_FILES["file"]["type"], $allowedTypes))
-   && ($_FILES["file"]["size"] < 500000)
-      && in_array($extension, $allowedExts))
-      {
-      if ($_FILES["file"]["error"] > 0)
-      {
-         echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
-	 }
-	 else
-	 {
-
-	 if (file_exists("upload/" . $_FILES["file"]["name"]))
-	   {
-	     echo $_FILES["file"]["name"] . " already exists. ";
-	       }
-	         else
-		   {
-		       move_uploaded_file($_FILES["file"]["tmp_name"],
-		       "upload/" . $_FILES["file"]["name"]);
-		           header('Location:
-			   https://web.njit.edu/~tej2/project1/forwardpage.html');
-			     }
-			       }
-			       }
-			       else
-			       {
-			       echo "Invalid file";
-			       }
-			       ?>
+                     //echo $id.'Uploaded Successfully!'; <--- output breaks
+		     header()
+		       header('Location:
+		       https://web.njit.edu/~tej2/project1/forwardpage.html');
+		         exit;
+			 ?>
