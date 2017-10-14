@@ -16,11 +16,6 @@ if($info['extension'] == 'csv'){
 	       echo "Sorry, your file is too large.";
 	           $uploadOk = 0;
 		   }
-                     if($uploadOK == true){
-		       echo "<script language='javascript'>\n";
-		         echo "alert('Upload successful!');
-			 window.location.href='https://web.njit.edu/~tej2/project1/forwardpage.html';";
-			   echo "</script>\n";
-			   }
+               
 			   
 			   ?>
