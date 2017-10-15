@@ -16,9 +16,10 @@ if($info['extension'] == 'csv'){
 	       echo "Sorry, your file is too large.";
 	           $uploadOk = 0;
 		   }
-              // This results in an error.
-	      // The output above is before the header() call
-	      header('Location:
-	      https://web.njit.edu/~tej2/project1/forwardpage.html');
-			   
-			   ?>
+		   ?>
+ <html>
+ <?php
+  // This results in an error.
+  // The output above is before the header() call
+  header('Location: index.php?page=fileupload&filename=yourfilename');
+exit;			   ?>
