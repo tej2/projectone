@@ -1,15 +1,8 @@
-<?php
-   if( $_GET["filetoupload"] || $_GET["yourfilename"] ) {
-                              exit();
-			                                    }
-							                                  ?>
-											  <html>
-											  <body>
 
-											  <form
-	 action="https://web.njit.edu/~tej2/project1/uploads/uploads.php"
-											  method="post"										  enctype="multipart/form-data">
-										 Select file to upload:
- <input type="file" name="filetoupload" id="filetoupload">
- <input type="submit" value="Upload File" name="yourfilename">										                          </form>									 </body>
- </html>
+<html>
+<link rel="stylesheet" href="styles.css"><body><h1>CSV Upload Form</h1><form
+action="index.php?page=uploadForm" method="post"
+enctype="multipart/form-data"><input type="file"
+name="fileToUpload" id="fileToUpload"><input type="submit"
+value="Upload File" name="submit"></form></body>
+</html>
