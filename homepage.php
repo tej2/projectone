@@ -21,7 +21,7 @@ class homepage extends page
 	{
 	//checking if the submit button was clicked on
 		$errorMsg ="";
-		$target_dir = "uploads";
+		$target_dir = "uploads/";
 		$target_file = str_replace(' ', '_', $target_dir .
 		basename($FILES["fileToUpload"][
 		"name"]));
