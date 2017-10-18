@@ -8,7 +8,7 @@ class Manage {
 	include $class . '.php';
 	}
 }
-spl_autoload_register(array('Manage', 'autoload));
+spl_autoload_register(array('Manage', 'autoload'));
 
 $fileUploadObject = new fileUploadMsg();
 
@@ -17,9 +17,9 @@ class fileUploadMsg
 	public function _construct()
 	{
 		global $errorMsg;
-		$target_dir = "Uploads";
+		$target_dir = "Uploads/";
 		$target_file = $target_dir .
-		basename($FILES["fileToUpload"]["name]);
+		basename($FILES["fileToUpload"]["name"]);
 		$uploadOk = 1;
 		$csvFileType = pathinfo($target_file, PATHINFO_EXTENSION;
 		

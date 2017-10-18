@@ -14,7 +14,7 @@ class tableDisplay extends page
 	$csvFileName = $_GET['filename'];
 
 	$data = array();
-	$uploadedfile = fopen("Uploads" . $csvFileName, "r");
+	$uploadedfile = fopen("Uploads/" . $csvFileName, "r");
 	$formTable = '<b>Data Table</b>';
 	$formTable .= '<table border="3">';
 	$arraylength = 0;
@@ -31,7 +31,7 @@ class tableDisplay extends page
 			$formTable .= '<tr>';
 			for ($i = 0; $i < $arraylength; $i++)
 			{
-			$formTable .= '<th>' . $data[$i] . '</th>;
+			$formTable .= '<th>' . $data[$i] . '</th>';
 			}
 			$formTable .= '</tr>';
 		} else
@@ -44,7 +44,7 @@ class tableDisplay extends page
 			$formTable .= '</tr>';
 			}
 		}
-		$formTable .= '</table>;
+		$formTable .= '</table>';
 		fclose($uploadedfile);
 		stringFunctions::printThis($formTable);
 		}
