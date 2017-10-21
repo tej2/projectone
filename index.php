@@ -30,9 +30,8 @@ class main {
 				}
 			}
 		}
-abstract class page
+abstract class page {
 
-{
 protected $html;
 
 public function __construct()
@@ -54,7 +53,7 @@ public function __construct()
 			}
 		}
 
-class homepage extends page
+class homepage extends page {
 
         public function get()
 	        {
