@@ -8,19 +8,20 @@ class Manage {
 	include $class . '.php';
 	}
 }
+
 spl_autoload_register(array('Manage', 'autoload'));
 
 $obj = new main();
 
 class main {
 
-	public function  __construct()
+	public function __construct()
 	{
-		$requestPageType = 'homepage';
-		if(isset(REQUEST['page'])) {
-			$requestPageType = $_REQUEST['page'];
+		$pageRequest = 'homepage';
+		if(isset($_REQUEST['page'])) {
+			$pageRequest = $_REQUEST['page'];
 			}
-			$page = new $requestPageType;
+			$page = new $pageRequest;
 
 			if($_SERVER['REQUEST_METHOD'] == 'GET') {
 				$page->get();
@@ -38,10 +39,11 @@ public function __construct()
 {
         $this->html .= '<html>';
 	 $this->html .= '<link rel="stylesheet" href="styles.css">';
-	  }
+	 $this->html .= '<body>';
+	 }
 		public function __destruct()
 		{
-        $this->html .= '</html>';
+        $this->html .= '</html></body>';
 	 stringFunctions::printThis($this->html);
 		 }
 		public function get(){
@@ -68,8 +70,41 @@ class homepage extends page
 	$target_file = str_replace(' ', '_', $target_dir . basename($FILES["fileToUpload"]["name"]));
 	$csvFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 	$csvFileName = pathinfo($target_file,PATHINFO_BASENAME);
-	header('Location: index.php?page=DisplayWebTable&fileName='.$csvFileName);
+	header('Location: index.php?page=htmlTable&fileName='.$csvFileName);
 
 			
 			}
 			}
+class htmlTable extends page {
+	public function get()
+	{
+	$tableDisplay="";
+	$imageFileName = $_REQUEST['filename'];
+	$file = fopen("uploads/".$imageFileName,"r");
+
+	$tableDisplay .='<table style="width:100%">';
+	while(! feof($file))
+		{
+		$table=(fgetcsv($file));
+		$arrlength = count($table);
+		$i=0;
+
+		$tableDisplay .='<tr>';
+		for ($i=0;$i<$arrlength;$i++)
+			{
+			$tableDisplay .='<td>'.&table[$i].'</td>';
+			}
+			$tableDisplay .='</tr>';
+			}
+			$tableDisplay .='</table>';
+			}
+		}
+	class stringFunctions {
+		static public function printThis($inputText) {
+			return print($inputText);
+			}
+		static public function stringLength($text) {
+			return strLen($text);
+			}
+		}
+?>
