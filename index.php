@@ -45,8 +45,8 @@ public function __construct()
 		{
         $this->html .= '</html></body>';
 	 stringFunctions::printThis($this->html);
-		 }
-		public function get(){
+		 { 
+		 public function get(){
 			echo 'Get method parent class';
 			}
 		public function post(){
