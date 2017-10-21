@@ -1,8 +1,10 @@
 <?php
 
+//turn on debugging messages
 ini_set('display_errors', 'On');
 error_reporting(E_ALL);
 
+//load all classes in this directory
 class Manage {
 	public static function autoload($class) {
 	include $class . '.php';
@@ -11,8 +13,10 @@ class Manage {
 
 spl_autoload_register(array('Manage', 'autoload'));
 
+//instantiate object
 $obj = new main();
 
+//starting main class for the index page
 class main {
 
 	public function __construct()
@@ -52,7 +56,7 @@ public function __construct()
 			echo 'Post method parent class';
 			}
 		}
-
+}
 class homepage extends page {
 
         public function get()
@@ -91,7 +95,7 @@ class htmlTable extends page {
 		$tableDisplay .='<tr>';
 		for ($i=0;$i<$arrlength;$i++)
 			{
-			$tableDisplay .='<td>'.&table[$i].'</td>';
+			$tableDisplay .='<td>'.$table[$i].'</td>';
 			}
 			$tableDisplay .='</tr>';
 			}
