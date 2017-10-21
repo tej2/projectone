@@ -21,7 +21,7 @@ class main {
 
 	public function __construct()
 	{
-		$pageRequest = 'homepage';
+		$pageRequest = 'form';
 		if(isset($_REQUEST['page'])) {
 			$pageRequest = $_REQUEST['page'];
 			}
@@ -48,7 +48,7 @@ public function __construct()
 		{
         $this->html .= '</html></body>';
 	 stringFunctions::printThis($this->html);
-		 { 
+		 } 
 		 public function get(){
 			echo 'Get method parent class';
 			}
@@ -57,7 +57,7 @@ public function __construct()
 			}
 		}
 }
-class homepage extends page {
+class form  extends page {
 
         public function get()
 	        {
