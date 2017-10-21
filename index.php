@@ -68,9 +68,9 @@ class homepage extends page
 	{
 	$target_dir = "uploads/";
 	$target_file = str_replace(' ', '_', $target_dir . basename($FILES["fileToUpload"]["name"]));
-	$csvFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-	$csvFileName = pathinfo($target_file,PATHINFO_BASENAME);
-	header('Location: index.php?page=htmlTable&fileName='.$csvFileName);
+	$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+	$imageFileName = pathinfo($target_file,PATHINFO_BASENAME);
+	header('Location: index.php?page=htmlTable&fileName='.$imageFileName);
 
 			
 			}
@@ -97,6 +97,9 @@ class htmlTable extends page {
 			$tableDisplay .='</tr>';
 			}
 			$tableDisplay .='</table>';
+			}
+			print($tableDisplay);
+			fclose($file);
 			}
 		}
 	class stringFunctions {
