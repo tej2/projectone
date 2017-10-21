@@ -33,7 +33,6 @@ class main {
 				$page->post();
 				}
 			}
-		}
 abstract class page {
 
 protected $html;
@@ -56,7 +55,6 @@ public function __construct()
 			echo 'Post method parent class';
 			}
 		}
-}
 class form  extends page {
 
         public function get()
@@ -85,7 +83,7 @@ class htmlTable extends page {
 	$imageFileName = $_REQUEST['filename'];
 	$file = fopen("uploads/".$imageFileName,"r");
 
-	$tableDisplay .='<table style="width:100%">';
+	$tableDisplay .='<table style="1px">';
 	while(! feof($file))
 		{
 		$table=(fgetcsv($file));
