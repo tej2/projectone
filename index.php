@@ -1,17 +1,17 @@
 <?php
-//turn on debugging messages
+
 ini_set('display_errors', 'On');
 error_reporting(E_ALL);
-//load all classes in this directory
+
 class Manage {
     public static function autoload($class) {
         include $class . '.php';
     }
 }
 spl_autoload_register(array('Manage', 'autoload'));
-//instantiate object
+
 $obj = new main();
-//starting main class for the index page
+
 class main
 {
     public function __construct()
