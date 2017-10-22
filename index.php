@@ -65,6 +65,7 @@ class form  extends page {
         $target_file = str_replace(' ', '_', $target_dir . basename($_FILES["fileToUpload"]["name"]));
         $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
         $imageFileName = pathinfo($target_file,PATHINFO_BASENAME);
+        move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
         header('Location: index.php?page=htmlTable&fileName='.$imageFileName);
 
     }
@@ -73,9 +74,9 @@ class htmlTable extends page {
     public function get()
     {
         $tableDisplay="";
-        $imageFileName = $_REQUEST['filename'];
+        $imageFileName = $_REQUEST['fileName'];
         $file = fopen("uploads/".$imageFileName,"r");
-        $tableDisplay .='<table style="1px">';
+        $tableDisplay .='<table border="1">';
         while(! feof($file))
         {
             $table=(fgetcsv($file));
